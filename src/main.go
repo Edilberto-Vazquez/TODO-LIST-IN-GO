@@ -64,9 +64,35 @@ func main() {
 		description: "Completar curso JavaScript en esta semana",
 		complete:    false,
 	}
-	list := taskList{tasks: []*task{t1, t2}}
-	list.addToList(t3)
-	list.tasks[0].checkComplete()
-	fmt.Println("Tareas completadas")
-	list.printListComplete()
+	list1 := &taskList{tasks: []*task{t1, t2, t3}}
+	// list.addToList(t3)
+	// list.tasks[0].checkComplete()
+	// fmt.Println("Tareas completadas")
+	// list.printListComplete()
+
+	t4 := &task{
+		name:        "Completar curso C#",
+		description: "Completar curso C# en esta semana",
+		complete:    false,
+	}
+	t5 := &task{
+		name:        "Completar curso Rust",
+		description: "Completar curso Rust en esta semana",
+		complete:    false,
+	}
+
+	list2 := &taskList{tasks: []*task{t4, t5}}
+
+	mapaTareas := make(map[string]*taskList)
+
+	mapaTareas["Edilberto"] = list1
+
+	mapaTareas["Maria"] = list2
+
+	fmt.Println("Tareas de Edilberto")
+	mapaTareas["Edilberto"].printList()
+
+	fmt.Println("<---------->")
+	fmt.Println("Tareas de Maria")
+	mapaTareas["Maria"].printList()
 }
